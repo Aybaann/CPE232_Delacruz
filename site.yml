@@ -49,6 +49,14 @@
       enabled: true
     when: ansible_distribution == "CentOS"
 
+  - name: Copy Default html file for site
+    copy:
+      src: default_site.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
+
 - hosts: db_servers
   become: true
   tasks:
